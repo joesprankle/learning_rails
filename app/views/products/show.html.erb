@@ -7,3 +7,43 @@
   <strong>Desc:</strong>
   <%= @product.desc %>
 </p>
+
+<h3>Costs</h3>
+<% @product.costs.each do |cost| %>
+    <p>
+      <strong>Item:</strong>
+      <%= cost.volume %>
+      $<%= cost.price %>
+
+    </p>
+
+<% end %>
+<button type="button" class="btn" onclick="showCostAdd()"> </button>
+<div id="costAdd" hidden>
+  <h2>Add a Cost:</h2>
+  <%= form_for([@product, @product.costs.build]) do |f| %>
+      <p>
+        <%= f.label :description %><br>
+        <%= f.text_field :volume %>
+      </p>
+      <p>
+        <%= f.label :cost %><br>
+        <%= f.text_field :price %>
+      </p>
+      <p>
+        <%= f.label :sort %><br>
+        <%= f.text_field :sort %>
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
+      </div>
+  <% end %>
+  <td><%= link_to 'Edit', edit_product_path(@product) %></td>
+  <%= link_to 'Back', products_path %>
+
+<script>
+    function showCostAdd(){
+        $('#costAdd').show();
+    }
+</script>
