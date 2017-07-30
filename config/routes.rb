@@ -7,10 +7,11 @@ Rails.application.routes.draw do
 
   resources :products do
     resources :costs
+    resources :product_photos
   end
   resources :categories
   resources :costs
-  resources :productimages
+
   resources :manufacturer
 
 

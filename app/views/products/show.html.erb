@@ -18,7 +18,8 @@
     </p>
 
 <% end %>
-<button type="button" class="btn" onclick="showCostAdd()"> </button>
+<button type="button" class="btn btn-primary" onclick="showCostAdd()">Add Cost</button>
+<button type="button" class="btn btn-primary" onclick="showPhotoAdd()">Add Photo</button>
 <div id="costAdd" hidden>
   <h2>Add a Cost:</h2>
   <%= form_for([@product, @product.costs.build]) do |f| %>
@@ -39,11 +40,33 @@
       </p>
       </div>
   <% end %>
+
+  <div id="photoAdd" hidden>
+  <%= form_for([@product, @product.productPhotos.build]) do |f| %>
+      <p>
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+      </p>
+      <p>
+        <%= f.label :URL %><br>
+        <%= f.text_field :url %>
+      </p>
+
+      <p>
+        <%= f.submit %>
+      </p>
+      </div>
+  <% end %>
+
+
   <td><%= link_to 'Edit', edit_product_path(@product) %></td>
   <%= link_to 'Back', products_path %>
 
 <script>
     function showCostAdd(){
-        $('#costAdd').show();
+        $('#costAdd').toggle();
+    }
+    function showPhotoAdd(){
+        $('#photoAdd').toggle();
     }
 </script>

@@ -1,7 +1,7 @@
 class CostsController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
-    @coost = @product.costs.create(cost_params)
+    @cost = @product.costs.create(cost_params)
     redirect_to product_path(@product)
   end
 
