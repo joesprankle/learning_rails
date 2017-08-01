@@ -1,0 +1,11 @@
+<%= form_for :manufacturer, url: manufacturers_path do |f| %>
+    <p>
+      <%= f.label :name %><br>
+    </p>
+    <%= f.text_field :name %>
+
+
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>

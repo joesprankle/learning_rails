@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
   def new
+    @manufacturers = Manufacturer.all
   end
   def show
     @product = Product.find(params[:id])
@@ -21,8 +22,8 @@ class ProductsController < ApplicationController
   end
   def create
 
-    @product = Product.new(product_params)
-
+    @   t = Product.new(product_params)
+    puts user.inspect
     @product.save
     redirect_to @product
   end
@@ -36,7 +37,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :desc)
+    params.require(:product).permit(:name, :desc, :manufacturer_id)
   end
 
 

@@ -3,4 +3,5 @@ class Product < ApplicationRecord
             length: { minimum: 5 }
   has_many :costs
   has_many :productPhotos
+  belongs_to :manufacturer
 end
